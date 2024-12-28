@@ -1,0 +1,17 @@
+- name: Installation of HTTPD
+  hosts: all
+  become: 'yes'
+  become_user: root
+
+  tasks:
+    - name: Install httpd
+      apt:
+        name: apache2
+        state: latest
+      
+    - name: Enable httpd
+      service:
+        name: apache2
+        state: started
+
+# ansible-playbook -i /home/rsv/Desktop/ansible/ec2-hosts.aws_ec2.yaml -u ubuntu Install_httpd.yaml

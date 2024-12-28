@@ -1,0 +1,22 @@
+#!/home/rsv/Desktop/ansible/myansible/bin/ansible-playbook
+- name: Installation of httpd
+  hosts: all
+  remote_user: ubuntu
+  become: 'yes'
+  become_user: root
+
+  tasks:
+    - name: Install httpd
+      apt:
+        name: apache2
+        state: latest
+      
+    - name: Enable httpd
+      service:
+        name: apache2
+        state: started
+
+# ansible-playbook --> By defining shebang dont use this anymore while executing this playbook
+# -i /home/rsv/Desktop/ansible/ec2-hosts.aws_ec2.yaml --> Add this to ansible.cfg file
+# -u ubuntu --> added in remote_user: parameter in this playbook
+# Install_httpd.yaml --> give the execute permission by chmod +x -R <Directory name>

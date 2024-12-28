@@ -1,0 +1,7 @@
+- name: Introduction to ansible playbook
+  hosts: all
+  become: 'yes'
+
+  tasks:
+    - name: checking ping to our EC2
+      ping:
