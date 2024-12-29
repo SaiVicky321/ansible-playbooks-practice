@@ -1,0 +1,14 @@
+#!/home/rsv/Desktop/ansible/myansible/bin/ansible-playbook
+- name: this is practice for custom varibles or global variables
+  hosts: all
+  remote_user: ubuntu
+  become: 'yes'
+  become_user: root
+
+  vars:
+    test: this is test variable
+  
+  tasks:
+    - name: Printing git version using custom varibles
+      debug:
+        var: test
